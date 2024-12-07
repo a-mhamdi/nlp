@@ -1,2 +1,3 @@
-# nlp-unraveled
-A Simple Way to Learn NLP: Using Code to Unlock Language
+# NLP Unraveled: An Easy Way To Unlocking Language Using Code
+---
+
