@@ -44,6 +44,7 @@ WORKDIR /workspace
 COPY text_processing_and_visualization .
 COPY gensim_text_processing .
 COPY named_entity_recognition .
+COPY Jupyter .
 
 EXPOSE 1357 2468
 
