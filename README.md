@@ -3,7 +3,7 @@
 [![NLP-CI](https://github.com/a-mhamdi/nlp/actions/workflows/nlp.yml/badge.svg)](https://github.com/a-mhamdi/nlp/actions/workflows/nlp.yml)
 [![Docker Version](https://img.shields.io/docker/v/abmhamdi/nlp?sort=semver)](https://hub.docker.com/r/abmhamdi/nlp)
 
-This repository contains slides, labs, and code samples for using `Python` to implement some **machine learning** related algorithms. 
+This repository contains slides, labs, and code samples for using `Python` to implement some **NLP** related tasks. 
 
 ## Included Topics
 The repository includes the implementation of the following parts:
