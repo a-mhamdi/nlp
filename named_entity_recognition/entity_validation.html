@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.8/dist/favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.8/dist/assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.8/dist/assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.8/dist/assets/Lora-VariableFont_wght-B2ootaw-.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.8/dist/assets/PTSans-Regular-CxL0S8W7.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.8/dist/assets/PTSans-Bold-D9fedIX3.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.8/dist/assets/FiraMono-Regular-BTCkDNvf.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.8/dist/assets/FiraMono-Medium-DU3aDxX5.ttf" as="font" crossorigin="anonymous" />
+    <link rel="preload" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.8/dist/assets/FiraMono-Bold-CLVRCuM9.ttf" as="font" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.8/dist/apple-touch-icon.png" />
+    <link rel="manifest" crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.8/dist/manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        var scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          var element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          var hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          var newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((entries) => {
+          setHeight();
+        });
+        resizeObserver.observe(obj.contentWindow.document.body);
+      }
+    </script>
+    <marimo-filename hidden>entity_validation.py</marimo-filename>
+    <marimo-mode data-mode='read' hidden></marimo-mode>
+    <marimo-version data-version='0.11.8' hidden></marimo-version>
+    <marimo-user-config data-config='{"completion": {"activate_on_typing": true, "copilot": false}, "display": {"cell_output": "above", "code_editor_font_size": 14, "dataframes": "rich", "default_width": "medium", "theme": "dark"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "package_management": {"manager": "pip"}, "runtime": {"auto_instantiate": true, "auto_reload": "off", "on_cell_change": "autorun", "output_max_bytes": 8000000, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "after_delay", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}}' data-overrides='{}' hidden></marimo-user-config>
+    <marimo-app-config data-config='{"width": "medium"}' hidden></marimo-app-config>
+    <marimo-server-token data-token='static' hidden></marimo-server-token>
+    <title>entity validation</title>
+    <script type="module" crossorigin crossorigin="anonymous" src="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.8/dist/assets/index-mdf3hACe.js"></script>
+    <link rel="stylesheet" crossorigin crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.8/dist/assets/index-DkqMrX_B.css">
+  
+<script data-marimo="true">
+    window.__MARIMO_STATIC__ = {};
+    window.__MARIMO_STATIC__.version = "0.11.8";
+    window.__MARIMO_STATIC__.notebookState = {"cellIds": ["Hbol"], "cellNames": ["Xw=="], "cellCodes": ["ZGVmJTIwdmFsaWRhdGVfZW50aXRpZXMoZW50aXRpZXMlMkMlMjBnYXpldHRlZXIpJTNBJTBBJTIwJTIwJTIwJTIwJTIyJTIyJTIyJTBBJTIwJTIwJTIwJTIwVmFsaWRhdGUlMjBleHRyYWN0ZWQlMjBlbnRpdGllcyUyMGFnYWluc3QlMjBrbm93biUyMGxpc3RzJTBBJTIwJTIwJTIwJTIwJTIyJTIyJTIyJTBBJTIwJTIwJTIwJTIwdmFsaWRhdGVkX2VudGl0aWVzJTIwJTNEJTIwJTVCJTVEJTBBJTBBJTIwJTIwJTIwJTIwZm9yJTIwZW50aXR5JTIwaW4lMjBlbnRpdGllcyUzQSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMyUyMENoZWNrJTIwYWdhaW5zdCUyMGtub3duJTIwZW50aXRpZXMlMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjBpZiUyMGVudGl0eSU1Qid0ZXh0JyU1RCUyMGluJTIwZ2F6ZXR0ZWVyLmdldChlbnRpdHklNUInbGFiZWwnJTVEJTJDJTIwJTVCJTVEKSUzQSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMGVudGl0eSU1Qid2YWxpZGF0ZWQnJTVEJTIwJTNEJTIwVHJ1ZSUwQSUyMCUyMCUyMCUyMCUyMCUyMCUyMCUyMGVsc2UlM0ElMEElMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjAlMjBlbnRpdHklNUIndmFsaWRhdGVkJyU1RCUyMCUzRCUyMEZhbHNlJTBBJTIwJTIwJTIwJTIwJTIwJTIwJTIwJTIwdmFsaWRhdGVkX2VudGl0aWVzLmFwcGVuZChlbnRpdHkpJTBBJTBBJTIwJTIwJTIwJTIwcmV0dXJuJTIwdmFsaWRhdGVkX2VudGl0aWVz"], "cellConfigs": ["JTdCJTIyY29sdW1uJTIyJTNBJTIwbnVsbCUyQyUyMCUyMmRpc2FibGVkJTIyJTNBJTIwZmFsc2UlMkMlMjAlMjJoaWRlX2NvZGUlMjIlM0ElMjBmYWxzZSU3RA=="], "cellOutputs": {"Hbol": "JTdCJTIyY2hhbm5lbCUyMiUzQSUyMCUyMm91dHB1dCUyMiUyQyUyMCUyMm1pbWV0eXBlJTIyJTNBJTIwJTIydGV4dCUyRnBsYWluJTIyJTJDJTIwJTIyZGF0YSUyMiUzQSUyMCUyMiUyMiUyQyUyMCUyMnRpbWVzdGFtcCUyMiUzQSUyMDE3NDAzMDg5MDcuOTkwMTQwMiU3RA=="}, "cellConsoleOutputs": {}};
+    window.__MARIMO_STATIC__.assetUrl = "https://cdn.jsdelivr.net/npm/@marimo-team/frontend@0.11.8/dist";
+    window.__MARIMO_STATIC__.files = {};
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  
+<marimo-code hidden="">
+    import%20marimo%0A%0A__generated_with%20%3D%20%220.11.8%22%0Aapp%20%3D%20marimo.App(width%3D%22medium%22)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20def%20validate_entities(entities%2C%20gazetteer)%3A%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20Validate%20extracted%20entities%20against%20known%20lists%0A%20%20%20%20%20%20%20%20%22%22%22%0A%20%20%20%20%20%20%20%20validated_entities%20%3D%20%5B%5D%0A%0A%20%20%20%20%20%20%20%20for%20entity%20in%20entities%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%23%20Check%20against%20known%20entities%0A%20%20%20%20%20%20%20%20%20%20%20%20if%20entity%5B'text'%5D%20in%20gazetteer.get(entity%5B'label'%5D%2C%20%5B%5D)%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20entity%5B'validated'%5D%20%3D%20True%0A%20%20%20%20%20%20%20%20%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20entity%5B'validated'%5D%20%3D%20False%0A%20%20%20%20%20%20%20%20%20%20%20%20validated_entities.append(entity)%0A%0A%20%20%20%20%20%20%20%20return%20validated_entities%0A%20%20%20%20return%20(validate_entities%2C)%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A
+</marimo-code>
+
+<marimo-code-hash hidden="">60355c2db2cead88767ff9f91d29f813b351507eacdacb462fb1db133fb9fb1e</marimo-code-hash>
+</body>
+</html>
