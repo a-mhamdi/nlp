@@ -41,6 +41,9 @@ ENV PYTHONUNBUFFERED=1
 ENV PATH="${VIRTUAL_ENV}/bin:$PATH"
 
 WORKDIR /workspace
+COPY text_processing_and_visualization .
+COPY gensim_text_processing .
+COPY named_entity_recognition .
 
 EXPOSE 1357 2468
 
