@@ -1,9 +1,4 @@
 services:
-  jupyter:
-    image: abmhamdi/nlp
-    ports:
-      - "2468:2468"
-    command: jupyter lab --NotebookApp.token='' --ip 0.0.0.0 --port 2468 --allow-root --no-browser
 
   marimo:
     image: abmhamdi/nlp
@@ -11,3 +6,8 @@ services:
       - "1357:1357"
     command: marimo edit --host 0.0.0.0 --port 1357 --headless --no-token
 
+  jupyter:
+    image: abmhamdi/nlp
+    ports:
+      - "2468:2468"
+    command: jupyter lab --NotebookApp.token='' --ip 0.0.0.0 --port 2468 --allow-root --no-browser
