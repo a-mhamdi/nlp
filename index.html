@@ -35,13 +35,13 @@
                 <div class="dropdown">
                     <button class="dropdown-button">Select Notebook</button>
                     <div class="dropdown-content" id="notebooks">
-                        <a href="#" onclick="loadPage('text_processing_and_visualization/create_bow.html')">Create BoW</a>
-                        <a href="#" onclick="loadPage('text_processing_and_visualization/create_tfidf.html')">Create TF-IDF</a>
-                        <a href="#" onclick="loadPage('text_processing_and_visualization/generate_wordcloud.html')">Generate WordCloud</a>
-                        <a href="#" onclick="loadPage('text_processing_and_visualization/plot_word_frequency.html')">Plot Word Frequency</a>
-                        <a href="#" onclick="loadPage('text_processing_and_visualization/visualization_with_seaborn.html')">Visualization with Seaborn</a>
-                        <a href="#" onclick="loadPage('text_processing_and_visualization/advanced_pipeline_with_custom_features.html')">Advanced Pipeline with Custom Features</a>
-                        <a href="#" onclick="loadPage('text_processing_and_visualization/complete_example_pipeline.html')">Complete Example Pipeline</a>
+                        <a href="#" onclick="loadPage('src/text_processing_and_visualization/create_bow.html')">Create BoW</a>
+                        <a href="#" onclick="loadPage('src/text_processing_and_visualization/create_tfidf.html')">Create TF-IDF</a>
+                        <a href="#" onclick="loadPage('src/text_processing_and_visualization/generate_wordcloud.html')">Generate WordCloud</a>
+                        <a href="#" onclick="loadPage('src/text_processing_and_visualization/plot_word_frequency.html')">Plot Word Frequency</a>
+                        <a href="#" onclick="loadPage('src/text_processing_and_visualization/visualization_with_seaborn.html')">Visualization with Seaborn</a>
+                        <a href="#" onclick="loadPage('src/text_processing_and_visualization/advanced_pipeline_with_custom_features.html')">Advanced Pipeline with Custom Features</a>
+                        <a href="#" onclick="loadPage('src/text_processing_and_visualization/complete_example_pipeline.html')">Complete Example Pipeline</a>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
 
         </div>
 
-        <iframe id="contentFrame" class="iframe-container" src="text_processing_and_visualization/create_bow.html"></iframe> <br>
+        <iframe id="contentFrame" class="iframe-container" src="src/py-onramp.html"></iframe> <br>
 
         <div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
             <img src="marimo.svg" alt="Marimo" width="300">
@@ -66,29 +66,29 @@
                     const selectedPart = part.value;
                     switch (selectedPart) {
                         case 'text-processing':
-                            notebooks.innerHTML  = '<a href="#" onclick="loadPage(\'text_processing_and_visualization/create_bow.html\')">Create BoW</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'text_processing_and_visualization/create_tfidf.html\')">Create TF-IDF</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'text_processing_and_visualization/generate_wordcloud.html\')">Generate WordCloud</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'text_processing_and_visualization/plot_word_frequency.html\')">Plot Word Frequency</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'text_processing_and_visualization/visualization_with_seaborn.html\')">Visualization with Seaborn</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'text_processing_and_visualization/advanced_pipeline_with_custom_features.html\')">Advanced Pipeline with Custom Features</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'text_processing_and_visualization/complete_example_pipeline.html\')">Complete Example Pipeline</a>';
+                            notebooks.innerHTML  = '<a href="#" onclick="loadPage(\'src/text_processing_and_visualization/create_bow.html\')">Create BoW</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/text_processing_and_visualization/create_tfidf.html\')">Create TF-IDF</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/text_processing_and_visualization/generate_wordcloud.html\')">Generate WordCloud</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/text_processing_and_visualization/plot_word_frequency.html\')">Plot Word Frequency</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/text_processing_and_visualization/visualization_with_seaborn.html\')">Visualization with Seaborn</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/text_processing_and_visualization/advanced_pipeline_with_custom_features.html\')">Advanced Pipeline with Custom Features</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/text_processing_and_visualization/complete_example_pipeline.html\')">Complete Example Pipeline</a>';
                             break;
                         case 'gensim':
-                            notebooks.innerHTML  = '<a href="#" onclick="loadPage(\'gensim_text_processing/creating_a_document_corpus.html\')">Creating a Document Corpus</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'gensim_text_processing/tfidf_with_gensim.html\')">TF-IDF with Gensim</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'gensim_text_processing/computing_similarity_between_documents.html\')">Computing Similarity Between Documents</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'gensim_text_processing/building_a_complete_text_analysis_pipeline.html\')">Building a Complete Text Analysis Pipeline</a>';
+                            notebooks.innerHTML  = '<a href="#" onclick="loadPage(\'src/gensim_text_processing/creating_a_document_corpus.html\')">Creating a Document Corpus</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/gensim_text_processing/tfidf_with_gensim.html\')">TF-IDF with Gensim</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/gensim_text_processing/computing_similarity_between_documents.html\')">Computing Similarity Between Documents</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/gensim_text_processing/building_a_complete_text_analysis_pipeline.html\')">Building a Complete Text Analysis Pipeline</a>';
                             break;
                         case 'ner':
-                            notebooks.innerHTML  = '<a href="#" onclick="loadPage(\'named_entity_recognition/basic_ner_with_nltk.html\')">Basic NER with NLTK</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'named_entity_recognition/extracting_named_entities.html\')">Extracting Named Entities</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'named_entity_recognition/basic_ner_with_spacy.html\')">Basic NER with spaCy</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'named_entity_recognition/advanced_spacy_ner.html\')">Advanced spaCy NER</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'named_entity_recognition/custom_ner_training.html\')">Custom NER Training</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'named_entity_recognition/text_preprocessing_for_ner.html\')">Text Preprocessing for NER</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'named_entity_recognition/entity_validation.html\')">Entity Validation</a>';
-                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'named_entity_recognition/performance_evaluation.html\')">Performance Evaluation</a>';
+                            notebooks.innerHTML  = '<a href="#" onclick="loadPage(\'src/named_entity_recognition/basic_ner_with_nltk.html\')">Basic NER with NLTK</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/named_entity_recognition/extracting_named_entities.html\')">Extracting Named Entities</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/named_entity_recognition/basic_ner_with_spacy.html\')">Basic NER with spaCy</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/named_entity_recognition/advanced_spacy_ner.html\')">Advanced spaCy NER</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/named_entity_recognition/custom_ner_training.html\')">Custom NER Training</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/named_entity_recognition/text_preprocessing_for_ner.html\')">Text Preprocessing for NER</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/named_entity_recognition/entity_validation.html\')">Entity Validation</a>';
+                            notebooks.innerHTML += '<a href="#" onclick="loadPage(\'src/named_entity_recognition/performance_evaluation.html\')">Performance Evaluation</a>';
                             break;
                     }
                 });
