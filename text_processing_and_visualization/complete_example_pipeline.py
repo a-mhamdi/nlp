@@ -4,6 +4,18 @@ __generated_with = "0.11.8"
 app = marimo.App(width="medium")
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+        # Complete Example Pipeline
+        ---
+        **Textbook is available @ [https://www.github.com/a-mhamdi/nlp](https://www.github.com/a-mhamdi/nlp)**
+        """
+    )
+    return
+
+
 @app.cell
 def _():
     from LOCAL.advanced_pipeline_with_custom_features import AdvancedTextPreprocessor
@@ -64,6 +76,12 @@ def _(process_and_visualize_text):
 
         tokens, bow, features = process_and_visualize_text(sample_text)
     return bow, features, sample_text, tokens
+
+
+@app.cell
+def _():
+    import marimo as mo
+    return (mo,)
 
 
 if __name__ == "__main__":

@@ -4,6 +4,18 @@ __generated_with = "0.11.8"
 app = marimo.App(width="medium")
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        r"""
+        # Text Preprocessor
+        ---
+        **Textbook is available @ [https://www.github.com/a-mhamdi/nlp](https://www.github.com/a-mhamdi/nlp)**
+        """
+    )
+    return
+
+
 @app.cell
 def _():
     import re
@@ -87,6 +99,12 @@ def _(TextPreprocessor):
         processed_tokens = preprocessor.process(text, use_stemming=True)
         print("Processed tokens:", processed_tokens)
     return preprocessor, processed_tokens, text
+
+
+@app.cell(hide_code=True)
+def _():
+    import marimo as mo
+    return (mo,)
 
 
 if __name__ == "__main__":

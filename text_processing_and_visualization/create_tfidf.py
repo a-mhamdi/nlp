@@ -4,6 +4,18 @@ __generated_with = "0.11.8"
 app = marimo.App(width="medium")
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        """
+        # Create TFIDF
+        ---
+        **Textbook is available @ [https://www.github.com/a-mhamdi/nlp](https://www.github.com/a-mhamdi/nlp)**
+        """
+    )
+    return
+
+
 @app.cell
 def _():
     from sklearn.feature_extraction.text import TfidfVectorizer
@@ -29,6 +41,12 @@ def _():
     if __name__ == '__main__':
         pass
     return
+
+
+@app.cell
+def _():
+    import marimo as mo
+    return (mo,)
 
 
 if __name__ == "__main__":

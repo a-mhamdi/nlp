@@ -4,6 +4,18 @@ __generated_with = "0.11.8"
 app = marimo.App(width="medium")
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        """
+        # Basic NER with Spacy
+        ---
+        **Textbook is available @ [https://www.github.com/a-mhamdi/nlp](https://www.github.com/a-mhamdi/nlp)**
+        """
+    )
+    return
+
+
 @app.cell
 def _():
     import spacy
@@ -53,6 +65,12 @@ def _(spacy_ner):
             print(f"Type: {entity['label']}")
             print(f"Position: {entity['start']}-{entity['end']}\n")
     return entities, entity, text
+
+
+@app.cell
+def _():
+    import marimo as mo
+    return (mo,)
 
 
 if __name__ == "__main__":

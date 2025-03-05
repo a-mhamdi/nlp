@@ -4,6 +4,18 @@ __generated_with = "0.11.8"
 app = marimo.App(width="medium")
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        """
+        # Advanced Pipeline with Custom Features
+        ---
+        **Textbook is available @ [https://www.github.com/a-mhamdi/nlp](https://www.github.com/a-mhamdi/nlp)**
+        """
+    )
+    return
+
+
 @app.cell
 def _():
     import re

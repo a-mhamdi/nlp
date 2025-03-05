@@ -4,6 +4,18 @@ __generated_with = "0.11.8"
 app = marimo.App(width="medium")
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        """
+        # Computing Similarity between Documents
+        ---
+        **Textbook is available @ [https://www.github.com/a-mhamdi/nlp](https://www.github.com/a-mhamdi/nlp)**
+        """
+    )
+    return
+
+
 @app.cell
 def _():
     from gensim import similarities
@@ -54,8 +66,13 @@ def _(compute_document_similarity):
         print("\nDocument similarities to query:") 
         for doc_id, score in sorted(similarities_, key=lambda x: x[1], reverse=True):
             print(f"Document {doc_id+1}: {score:.4f} - {documents[doc_id]}")
-
     return doc_id, documents, query, score, similarities_
+
+
+@app.cell
+def _():
+    import marimo as mo
+    return (mo,)
 
 
 if __name__ == "__main__":

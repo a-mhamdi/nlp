@@ -4,6 +4,18 @@ __generated_with = "0.11.8"
 app = marimo.App(width="medium")
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        """
+        # Advanced Spacy NER
+        ---
+        **Textbook is available @ [https://www.github.com/a-mhamdi/nlp](https://www.github.com/a-mhamdi/nlp)**
+        """
+    )
+    return
+
+
 @app.cell
 def _():
     import spacy
@@ -86,6 +98,12 @@ def _(NamedEntityExtractor):
         print("Entity types distribution:", stats['entity_types'])
         print(f"Entity density: {stats['entity_density']:.2%}")
     return analysis, extractor, item, stats, text
+
+
+@app.cell
+def _():
+    import marimo as mo
+    return (mo,)
 
 
 if __name__ == "__main__":

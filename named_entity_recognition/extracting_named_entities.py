@@ -4,6 +4,18 @@ __generated_with = "0.11.8"
 app = marimo.App(width="medium")
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        """
+        # Extracting Named Entities
+        ---
+        **Textbook is available @ [https://www.github.com/a-mhamdi/nlp](https://www.github.com/a-mhamdi/nlp)**
+        """
+    )
+    return
+
+
 @app.cell
 def _():
     from LOCAL.basic_ner_with_nltk import nltk_ner
@@ -56,6 +68,12 @@ def _(extract_entities):
             if entity_list:
                 print(f"{entity_type}: {entity_list}")
     return entities, entity_list, entity_type, text
+
+
+@app.cell
+def _():
+    import marimo as mo
+    return (mo,)
 
 
 if __name__ == "__main__":

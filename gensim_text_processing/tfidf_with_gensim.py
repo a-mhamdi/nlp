@@ -4,6 +4,18 @@ __generated_with = "0.11.8"
 app = marimo.App(width="medium")
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        """
+        # TFIDF with Gensim
+        ---
+        **Textbook is available @ [https://www.github.com/a-mhamdi/nlp](https://www.github.com/a-mhamdi/nlp)**
+        """
+    )
+    return
+
+
 @app.cell
 def _():
     from gensim import corpora, models
@@ -54,6 +66,12 @@ def _(create_tfidf_model):
             for id, score in doc:
                 print(f"Word: {dictionary[id]}, Score: {score:.4f}")
     return corpus_tfidf, dictionary, doc, docs, i, id, score, tfidf_model
+
+
+@app.cell
+def _():
+    import marimo as mo
+    return (mo,)
 
 
 if __name__ == "__main__":

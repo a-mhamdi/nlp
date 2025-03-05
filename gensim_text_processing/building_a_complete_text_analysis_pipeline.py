@@ -4,6 +4,18 @@ __generated_with = "0.11.8"
 app = marimo.App(width="medium")
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(
+        """
+        # Building a Complete Text Analysis Pipeline
+        ---
+        **Textbook is available @ [https://www.github.com/a-mhamdi/nlp](https://www.github.com/a-mhamdi/nlp)**
+        """
+    )
+    return
+
+
 @app.cell
 def _():
     from gensim import corpora, models, similarities
@@ -78,6 +90,12 @@ def _(GensimTextAnalyzer):
         for doc_id, score in similar_docs:
             print(f"Score: {score:.4f} - {documents[doc_id]}")
     return analyzer, doc_id, documents, query, score, similar_docs
+
+
+@app.cell
+def _():
+    import marimo as mo
+    return (mo,)
 
 
 if __name__ == "__main__":
