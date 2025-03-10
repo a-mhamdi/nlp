@@ -42,7 +42,6 @@ ENV PATH="${VIRTUAL_ENV}/bin:$PATH"
 
 WORKDIR /workspace
 COPY Marimo .
-COPY Jupyter .
 
 EXPOSE 1357 2468
 
