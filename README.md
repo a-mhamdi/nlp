@@ -15,18 +15,28 @@ The repository includes the implementation of the following parts:
 >1. Named Entity Recognition (NER)
 
 ## Prerequisites
+
+> [!NOTE]
+> You can either follow the steps below for local installation or use the provided Docker image for a containerized environment.
+
+## Installation Steps
+These commands will set up an isolated environment and install all required packages for this project.
+```zsh
+uv venv # creates a virtual environment: `.venv`
+uv sync # installs all dependencies
+```
+## Docker Setup
 Codes run on top of a `Docker` image, ensuring a consistent and reproducible environment. 
 
 <img src="https://raw.githubusercontent.com/a-mhamdi/mlpy/main/Attention.svg" alt="Attention" width="16"/> You will need to have `Docker` installed on your machine. You can download it from the [Docker website](https://hub.docker.com).
 
-> [!NOTE]
-> To run the code, you will need to first pull the `Docker` image by running the following command:
-> 
-> ```zsh
-> docker pull abmhamdi/nlp
-> ```
-> 
-> This may take a while, as it will download and install all necessary dependencies.
+To run the code, you will need to first pull the `Docker` image by running the following command:
+
+```zsh
+docker pull abmhamdi/nlp
+```
+
+This may take a while, as it will download and install all necessary dependencies.
 
 ## How to control the containers:
 
