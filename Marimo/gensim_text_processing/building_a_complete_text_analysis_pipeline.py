@@ -10,7 +10,7 @@ def _(mo):
         """
         # Building a Complete Text Analysis Pipeline
         ---
-        **Textbook is available @ [https://www.github.com/a-mhamdi/nlp-workshop](https://www.github.com/a-mhamdi/nlp-workshop)**
+        **Textbook is available @ [https://www.github.com/a-mhamdi/nlp](https://www.github.com/a-mhamdi/nlp)**
         """
     )
     return
