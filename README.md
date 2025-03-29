@@ -28,7 +28,9 @@ uv sync # installs all dependencies
 ## Docker Setup
 Codes run on top of a `Docker` image, ensuring a consistent and reproducible environment. 
 
-<img src="https://raw.githubusercontent.com/a-mhamdi/mlpy/main/Attention.svg" alt="Attention" width="16"/> You will need to have `Docker` installed on your machine. You can download it from the [Docker website](https://hub.docker.com).
+> [!CAUTION]
+>
+> You will need to have `Docker` installed on your machine. You can download it from the [Docker website](https://hub.docker.com).
 
 To run the code, you will need to first pull the `Docker` image by running the following command:
 
