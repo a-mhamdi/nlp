@@ -20,7 +20,7 @@ def _(mo):
     mo.md(
         """
         **Goals**
-  
+
         1. Learn the fundamentals of *Python* programming;
         1. Become familiar with *Marimo Notebook*;
         1. Utilize scientific computing modules;
@@ -1035,7 +1035,7 @@ def _():
             self.brand = brand
             self.model = model
             self.year = year
-        
+
         def print_details(self):
             print(f"Brand: {self.brand}, Model: {self.model}, Year: {self.year}")
 
@@ -1112,7 +1112,6 @@ def _(mo):
         [^2]: https://www.techtarget.com/whatis/definition/polymorphism
         [^3]: https://www.bmc.com/blogs/polymorphism-programming/
         [^4]: https://www.techtarget.com/searchapparchitecture/tip/Understanding-the-role-of-polymorphism-in-OOP
-
         """
     )
     return
@@ -1223,7 +1222,7 @@ def _():
                 return False
             print("Payment validated.")
             return True
-    
+
     # Concrete classes
     class CreditCard(AbstractPaymentMethod):
         def make_payment(self, amount):
@@ -1287,7 +1286,6 @@ def _():
     print(person.get_name())  # Output: Said
     person.set_name("Ahmed")
     print(person.get_name())  # Output: Ahmed
-
     return Person, person
 
 
@@ -1401,7 +1399,6 @@ def _():
         new_circle.radius = 20  # Raises AttributeError because there's no setter defined.
     except AttributeError as e:
         print(e)  # Output: can't set attribute
-
     return NewCircle, new_circle
 
 
