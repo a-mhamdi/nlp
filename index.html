@@ -25,6 +25,7 @@
 
         <div class="container">
             <div>
+                <!--
                 <div class="radio-buttons">
                     <form>
                         <input type="radio" name="part" value="text-processing"> Text Processing and Visualization &nbsp;
@@ -32,18 +33,15 @@
                         <input type="radio" name="part" value="ner"> Named Entity Recognition
                     </form>
                 </div>
+                -->
                 <div class="dropdown">
                     <button class="dropdown-button">Select Notebook</button>
                     <div class="dropdown-content" id="notebooks">
-                        <!--
-                        <a href="#" onclick="loadPage('src/text_processing_and_visualization/create_bow.html')">Create BoW</a>
-                        <a href="#" onclick="loadPage('src/text_processing_and_visualization/create_tfidf.html')">Create TF-IDF</a>
-                        <a href="#" onclick="loadPage('src/text_processing_and_visualization/generate_wordcloud.html')">Generate WordCloud</a>
-                        <a href="#" onclick="loadPage('src/text_processing_and_visualization/plot_word_frequency.html')">Plot Word Frequency</a>
-                        <a href="#" onclick="loadPage('src/text_processing_and_visualization/visualization_with_seaborn.html')">Visualization with Seaborn</a>
-                        <a href="#" onclick="loadPage('src/text_processing_and_visualization/advanced_pipeline_with_custom_features.html')">Advanced Pipeline with Custom Features</a>
-                        <a href="#" onclick="loadPage('src/text_processing_and_visualization/complete_example_pipeline.html')">Complete Example Pipeline</a>
-                        -->
+                        <a href="#" onclick="loadPage('src/py-onramp.html')">Introduction to Python</a>
+                        <a href="#" onclick="loadPage('src/text_processing.html')">Text Processing</a>
+                        <a href="#" onclick="loadPage('src/text_visualization.html')">Text Visualization</a>
+                        <a href="#" onclick="loadPage('src/gensim_text_processing.html')">Gensim Text Processing</a>
+                        <a href="#" onclick="loadPage('src/extracting_named_entities.html')">Extracting Named Entities</a>
                     </div>
                 </div>
             </div>
@@ -61,6 +59,7 @@
         </div>
 
         <script>
+            /*
             const partSelecter = document.querySelectorAll('input[name="part"]');
             const notebooks = document.getElementById('notebooks');
             partSelecter.forEach(part => {
@@ -95,6 +94,7 @@
                     }
                 });
             });
+            */
 
             function loadPage(url) {
                 document.getElementById('contentFrame').src = url;
