@@ -41,7 +41,8 @@ ENV PYTHONUNBUFFERED=1
 ENV PATH="${VIRTUAL_ENV}/bin:$PATH"
 
 WORKDIR /workspace
-COPY Marimo .
+COPY Marimo Marimo
+COPY Jupyter Jupyter
 
 EXPOSE 1357 2468
 
