@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.11.8"
+__generated_with = "0.10.4"
 app = marimo.App(width="medium")
 
 
@@ -132,6 +132,80 @@ def _(find_similar):
 
     find_similar(documents_2, query_2)
     return documents_2, query_2
+
+
+@app.cell
+def _(mo):
+    mo.md("""**Word Embeddings**""")
+    return
+
+
+@app.cell
+def _():
+    import gensim.downloader as api
+    return (api,)
+
+
+@app.cell
+def _(api):
+    model_glove_twitter = api.load("glove-twitter-25")
+    return (model_glove_twitter,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md("""Get word vectors""")
+    return
+
+
+@app.cell
+def _(model_glove_twitter):
+    vect_tn = model_glove_twitter['tunisia']
+    print(vect_tn)
+    return (vect_tn,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md("""Find similar words""")
+    return
+
+
+@app.cell
+def _(model_glove_twitter):
+    similar_words = model_glove_twitter.most_similar("good")
+    print(similar_words)
+    return (similar_words,)
+
+
+@app.cell
+def _(model_glove_twitter):
+    model_glove_twitter.doesnt_match(["free", "honest", "dignity", "microsoft"])
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md("""King - Man = Queen - Woman""")
+    return
+
+
+@app.cell
+def _(model_glove_twitter):
+    model_glove_twitter.most_similar(positive=["king", "woman"], negative=["man"])[0:3]
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md("""France - Paris = USA - Washington, D.C.""")
+    return
+
+
+@app.cell
+def _(model_glove_twitter):
+    model_glove_twitter.most_similar(positive=["france", "washington"], negative=["paris"])[0:3]
+    return
 
 
 @app.cell
