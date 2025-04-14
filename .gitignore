@@ -6,3 +6,4 @@ named_entity_recognition/LOCAL
 text_processing_and_visualization/LOCAL
 text_processing_and_visualization/__pycache__
 .python-version
+Marimo/export2html.sh
