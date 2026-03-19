@@ -26,7 +26,7 @@ def _(mo):
 def _():
     import nltk
 
-    return (nltk,)
+    return
 
 
 @app.cell
@@ -35,21 +35,6 @@ def _():
     from nltk import word_tokenize, pos_tag
 
     return ne_chunk, pos_tag, word_tokenize
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md("""
-    Download required NLTK data
-    """)
-    return
-
-
-@app.cell
-def _(nltk):
-    nltk.download('averaged_perceptron_tagger_eng')
-    nltk.download('maxent_ne_chunker_tab')
-    return
 
 
 @app.cell

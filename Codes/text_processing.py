@@ -137,22 +137,7 @@ def _():
     from nltk.stem import WordNetLemmatizer
     from nltk.stem.porter import PorterStemmer
 
-    return PorterStemmer, WordNetLemmatizer, nltk, re, stopwords, word_tokenize
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    Download required NLTK data
-    """)
-    return
-
-
-@app.cell
-def _(nltk):
-    nltk.download('punkt_tab')
-    nltk.download('stopwords')
-    return
+    return PorterStemmer, WordNetLemmatizer, re, stopwords, word_tokenize
 
 
 @app.cell

@@ -1,50 +1,50 @@
+ARG UV_VERSION=0.4.20
+ARG PYTHON_VERSION=3.12
+
 ###########################
-#= STAGE 1: BUILD STAGE =#
+#= STAGE 1: UV STAGE =#
 ##########################
 
-FROM python:3.10.12 AS builder
+FROM ghcr.io/astral-sh/uv:${UV_VERSION} AS uv-stage
 
-SHELL [ "/bin/bash", "-c" ]
+###########################
+#= STAGE 2: BUILD STAGE =#
+##########################
 
-ENV VIRTUAL_ENV=/opt/venv
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
+FROM python:${PYTHON_VERSION}-slim AS builder
 
 ## Install build dependencies
 RUN apt-get update && \
-	apt-get install -y --no-install-recommends gcc libffi-dev libssl-dev vim && \
+	apt-get install -y --no-install-recommends gcc libffi-dev libssl-dev && \
     rm -rf /var/lib/apt/lists/*
 
 ## Install `uv` for fast package management
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
-RUN uv venv ${VIRTUAL_ENV}
+COPY --from=uv-stage /uv /uvx /bin/
+RUN uv venv /opt/venv
 
-## Set the PATH to use the virtual environment
-ENV PATH="${VIRTUAL_ENV}/bin:$PATH"
-COPY requirements.txt /tmp/
-RUN uv pip install --no-cache-dir -r /tmp/requirements.txt
-
+## Install dependencies
+COPY Codes/pyproject.toml .
+RUN uv sync
+    
 ############################
-#= STAGE 2: RUNTIME STAGE =#
+#= STAGE 3: RUNTIME STAGE =#
 ############################
 
-FROM python:3.10.12 AS runtime
-COPY --from=builder /opt/venv /opt/venv
+FROM python:${PYTHON_VERSION}-slim AS runtime
+COPY --from=builder /.venv /opt/venv
 
 ## Metadata
 LABEL author="A. Mhamdi <a_mhamdi@outlook.com>"
 LABEL version="latest"
 
-ENV VIRTUAL_ENV=/opt/venv
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
-ENV PATH="${VIRTUAL_ENV}/bin:$PATH"
+ENV PATH="/opt/venv/bin:$PATH"
+ENV NLTK_DATA=/data/nltk_data
+ENV GENSIM_DATA_DIR=/data/gensim_data
 
 WORKDIR /workspace
-COPY Marimo Marimo
-COPY Jupyter Jupyter
+COPY Codes/images .
+COPY Codes/*.py .
 
-EXPOSE 1357 2468
+EXPOSE 1357
 
-CMD [ "/bin/bash" ]
-
+CMD ["python", "-m", "marimo", "edit", "--host", "0.0.0.0", "--port", "1357", "--headless", "--no-token"]

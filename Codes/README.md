@@ -1,6 +1,6 @@
 # About This Folder
 
-It contains `Python` scripts and utilities for **Natural Language Processing** *(NLP)* tasks, primarily using libraries such as `NLTK`, `SpaCy`, and `Gensim`. 
+It contains `Python` scripts and utilities for **NLP** tasks, primarily using libraries such as `NLTK`, `SpaCy`, and `Gensim`. 
 
 > ![NOTE]
 > **We use Marimo**, a reactive `Python` notebook for interactive experimentation.

@@ -33,8 +33,7 @@
   set document(title: title, author: authors.map(author => author.name))
 
   // Set the body font.
-  // set text(font: "Inter", size: 10pt)
-  set text(font: "Delicious")
+  set text(font: "Alegreya")
 
   // Configure the page.
   set page(
