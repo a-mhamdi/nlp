@@ -22,7 +22,6 @@ The repository includes the implementation of the following parts:
 ## Installation Steps
 These commands will set up an isolated environment and install all required packages for this project.
 ```zsh
-uv venv # creates a virtual environment: `.venv`
 uv sync # installs all dependencies
 ```
 ## Docker Setup
@@ -43,7 +42,7 @@ This may take a while, as it will download and install all necessary dependencie
 ## How to control the containers:
 
 * ```docker-compose up -d``` starts the container in detached mode
-* ```docker-compose down``` stops and destroys the container
+* ```docker-compose down``` tears down the container
 
 Services can be run by typing the command `docker-compose up`. This will start the `Jupyter Lab` on [http://localhost:2468](http://localhost:2468), and you should be able to use `Python` from within the notebook by starting a new `Python` notebook. You can parallelly start `Marimo` on [http://localhost:1357](http://localhost:1357).
 

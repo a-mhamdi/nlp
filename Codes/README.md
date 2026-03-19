@@ -1,29 +1,28 @@
-# NLP Codes Repository
+# About This Folder
 
+It contains `Python` scripts and utilities for **Natural Language Processing** *(NLP)* tasks, primarily using libraries such as `NLTK`, `SpaCy`, and `Gensim`. 
 
-This repository contains `Python` scripts and utilities for **Natural Language Processing** *(NLP)* tasks, primarily using libraries such as `NLTK`, `SpaCy`, and `Gensim`. 
-
-**We use Marimo**, a reactive `Python` notebook for interactive experimentation.
-
-![Marimo Logo](marimo.svg)
+> ![NOTE]
+> **We use Marimo**, a reactive `Python` notebook for interactive experimentation.
+> ![Marimo Logo](marimo.svg)
 
 ## Installation
 
 This project uses `uv` for fast and reliable Python package management. To set up the environment locally:
 
 1. Install `uv` if you haven't already:
-   ```bash
+   ```zsh
    curl -LsSf https://astral.sh/uv/install.sh | sh
    ```
 
 2. Clone the repository and navigate to the directory:
-   ```bash
+   ```zsh
    git clone https://github.com/a-mhamdi/nlp
    cd nlp/codes
    ```
 
 3. Install dependencies using `uv`:
-   ```bash
+   ```zsh
    uv python pin 3.12 # Ensure you have Python 3.12 installed
    uv sync
    ```
@@ -31,11 +30,11 @@ This project uses `uv` for fast and reliable Python package management. To set u
 This will create a virtual environment and install all required packages as specified in `pyproject.toml`.
 
 4. Run `Marimo` to start the interactive notebook:
-   ```bash
+   ```zsh
    uv run marimo edit
    ```
 
-## Python Files
+## Code Files
 
 - **py-onramp.py**: Introductory `Python` code for **NLP** beginners.
 - **extracting_named_entities.py**: Notebook for extracting named entities from text.
