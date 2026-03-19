@@ -22,7 +22,9 @@ def _(mo):
     1. Become familiar with *Marimo Notebook*;
     1. Utilize scientific computing modules;
     1. Work with regular expressions;
-    1. Explore object-oriented programming.
+    1. Explore object-oriented programming;
+    1. Context managers;
+    1. Decorators.
     """)
     return
 
