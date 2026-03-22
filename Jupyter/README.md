@@ -1,8 +1,6 @@
-# PyTorch: From Fundamentals to Transformers
+# PyTorch: From Fundamentals to Transformers 
 
-![Jupyter](jupyter.svg)
-
-This is a collection of Jupyter notebooks designed to guide you through the essentials of **NLP** *(Natural Language Processing)* using **PyTorch**. 
+This is a collection of Jupyter ![Jupyer](jupyter.svg) notebooks designed to guide you through the essentials of **NLP** *(Natural Language Processing)* using **PyTorch**. 
 
 > [!TIP]
 > All notebooks are designed to run seamlessly in **Google Colab**, providing free access to **GPU** acceleration for faster training. Simply click the `Open in Colab` badge in each notebook or upload them directly to **Colab** environment.
@@ -22,4 +20,3 @@ We unlock the power of modern **NLP** with the revolutionary Transformer archite
 - Building the complete Transformer model: encoder-decoder architecture, positional encoding, and feed-forward networks
 - Pre-training and fine-tuning strategies
 - Applications in machine translation, text generation, and beyond.
-
