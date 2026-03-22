@@ -2,6 +2,9 @@ name: NLP-CI
 
 on:
   push:
+      paths:
+      - 'Codes/**'
+      - 'Docker/**'
   workflow_dispatch:
 
 jobs:
