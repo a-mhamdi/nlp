@@ -179,15 +179,10 @@
   }
   v(40pt, weak: true)
 
-	
-	
-
   // Start two column mode and configure paragraph properties.
 
   show: columns.with(2, gutter: 12pt)
   //set page(columns: 2)
-  
-
   
   set par(justify: true, spacing: 0.65em)
 
@@ -205,13 +200,11 @@
   // Display the paper s contents.
   body
 
-
   // Display bibliography.
   if bibliography-file != none {
     show bibliography: set text(8pt)
     bibliography(bibliography-file, title: text(10pt)[References], style: "ieee")
   }
-
 }
 
 // EXO
