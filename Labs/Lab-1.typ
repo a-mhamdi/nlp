@@ -1,80 +1,58 @@
-#import "Class.typ": *
+#import "Preamble.typ": *
 
-#show: ieee.with(
-  title: [#text(smallcaps("Lab #1: Regular Expressions in Python and grep"))],
+#align(center)[
+  #v(0.2em)
+  #text(fill: dark, size: 18pt, weight: "bold")[Regex & Regex-based Tokenisation]
+  #v(0.2em)
+  #text(fill: teal, size: 10pt, style: "italic")[
+    Pattern Matching · Custom Tokenisers · Scientific Text · Python `re` module
+  ]
+  #v(0.1em)
+  #line(length: 100%, stroke: 2pt + teal)
+  #v(0.4em)
+]
 
-  abstract: [
-    This lab introduces regular expressions in Python and the grep command. You will learn how to use regular expressions to search for patterns in text and how to use grep to search for patterns in files. By the end, you will be able to use regular expressions and grep to search for patterns in text and files.
-  ],
+#grid(columns: (2fr, 1fr),
+  gutter: 10pt,
+  [*Students:* #h(1fr) #box(width: 8cm, line(length: 100%, stroke: 0.5pt + border))],
+  [*Date:* #h(1fr) #box(width: 3cm, line(length: 100%, stroke: 0.5pt + border))],
+)
+#v(0.6em)
 
-  authors:
-  (
-    (
-      name: "Abdelbacet Mhamdi",
-      department: [Senior-lecturer, Dept. of EE],
-      organization: [ISET Bizerte --- Tunisia],
-      profile: "a-mhamdi",
-    ),
+#block(width: 100%, fill: light, radius: 4pt, inset: (x: 12pt, y: 8pt), stroke: 1pt + border)[
+  #text(weight: "bold", fill: dark)[Objective: ]
+  #text(fill: gray)[
+    This lab covers regular expressions as a practical tool for scientific text processing — from basic pattern matching to building a custom tokeniser that handles domain-specific notation.
+  ]
+]
 
-    /*
-    (
-      name: "Student 1",
-      department: [Dept. of EE],
-      organization: [ISET Bizerte --- Tunisia],
-      profile: "abc",
-    ),
-    (
-      name: "Student 2",
-      department: [Dept. of EE],
-      organization: [ISET Bizerte --- Tunisia],
-      profile: "abc",
-    ),
-  */
+#v(0.5em)
 
-  )
-  // index-terms: (""),
-  // bibliography-file: "Biblio.bib",
+#q("1",
+  [Scientific abstracts contain values like `37.5°C`, `1.2 µM`, `p < 0.001`. Write a single regex capturing a numeric value followed by an optional space and a unit abbreviation (letters, Greek letters, `%`, `°`). Test with `re.findall()`.],
+  "Use \\d+(?:\\.\\d+)? for the number, \\s? for the space, [\\w°µ%]+ for the unit.",
 )
 
-= Introduction
-*Regular expressions* _(regex)_ are a powerful and widely used tool for pattern matching and text processing. They are essential in many domains such as data cleaning, log analysis, web scraping, cybersecurity, and natural language processing. In Python, regex is supported through the built-in re module, which provides flexible and efficient functions for searching, matching, extracting, and transforming text.
+#q("2",
+  [Citations appear as `[1]`, `[1–3]`, or `(Smith et al., 2019)`. Write two patterns — bracket-style and author-year — then merge them with alternation into one compiled pattern.],
+  "Bracket: \\[\\d+(?:[,–]\\d+)*\\]. Author-year: \\((?:[A-Z][a-z]+ et al\\.\\s)?\\d{4}\\). Combine with | in re.compile(); use re.UNICODE."
+)
 
-At the end of this lab, you should be able to:
-  - Understand the basic syntax and structure of regular expressions
-  - Use Python’s re module to search, match, and extract patterns from text
-  - Validate structured data such as emails, phone numbers, and dates using regex
-  - Perform text substitution and cleaning operations
-  - Apply regex concepts using the grep command in a Linux terminal
-  - Develop confidence in using regex for practical data processing tasks
+#q("3",
+  [Write a negative lookbehind preventing sentence splits after abbreviations like `et al.`, `Fig.`, `vs.`. Explain the difference from a negative lookahead.],
+  "(?<!\\b(?:et al|Fig|cf|vs))\\.\\s+[A-Z]. A lookbehind checks what precedes; a lookahead checks what follows — neither consumes characters.",
+)
 
-#colbreak()
+#q("4",
+  [Write a three-stage normalisation function using `re.sub()`: (1) strip HTML/XML tags, (2) decode common entities (`&amp;`, `&#x03B1;`), (3) collapse whitespace.],
+  "Stage 1: re.sub(r'<[^>]+>', '', text). Stage 2: dict + lambda. Stage 3: re.sub(r'\\s+', ' ', text).strip(). Strip tags before decoding entities.",
+)
 
-= Exercises
+#q("5",
+  [Implement a `RegexTokeniser` class with types in priority order: CITATION, FORMULA, MEASUREMENT, ABBREV, WORD, NUMBER, PUNCT. The `tokenise(text)` method returns `(type, value)` tuples.],
+  "Use named groups (?P<TYPE>...) joined with |. In tokenise(), use re.finditer(); read match.lastgroup and match.group(). Drop WHITESPACE tokens.",
+)
 
-#exo[Basic pattern matching][Using Python and the re module, write a script that reads sample.txt and prints all email addresses found in the file.]
+#v(0.6em)
 
-#exo[Structured data extraction][Write a Python script that identifies and prints all IPv4 addresses from the file.]
-
-#exo[Substitution and Data Masking][Using re.sub(), replace:
-  + All phone numbers with [PHONE_HIDDEN]
-  + All credit card numbers with [CARD_HIDDEN]
-The modified text should then be printed or saved into a new file named masked.txt.]
-
-#exo[Searching with grep][Using the Linux terminal, apply grep to find all lines that contain dates in MM/DD/YYYY or in YYYY-MM-DD format.]
-
-#exo[Advanced grep usage][Identify and analyze phone numbers in the file.
-  + Use grep to display all lines containing US phone numbers.
-  + Use grep -c to count how many phone numbers appear.
-  + Use grep -o to print only the phone numbers, not the full lines.]
-
-#colbreak()
-
-#exo[Log file analysis][You're a system administrator investigating suspicious activity on a web server. You've been given a log file (server.log) containing thousands of entries. Your task is to extract specific patterns and identify potential security issues.
-  + Find all log entries with exactly 403 status codes (Forbidden).
-  + Find all lines containing valid IPv4 addresses that start with 192.168. Note: Focus on the standard format (no leading zeros like 192.168.001.050).
-  + Extract all entries that occurred between 08:25:00 and 08:30:00 (inclusive).
-  + Find all POST requests to /login that resulted in a 401 status AND have an attempts parameter with a value of 4 or higher.
-  + Identify lines where the request path contains two or more consecutive dots (..) which might indicate directory traversal attacks.
-  + Find all requests that took longer than 1 second to process (response time >= 1.000s). The time format is always X.XXXs.
-  + Find POST or DELETE requests to /api/\* endpoints that resulted in either 500 or 204 status codes AND took more than 0.3 seconds.
-]
+#line(length: 100%, stroke: 1pt + border)
